@@ -23,10 +23,10 @@ pipeline {
         }
         failure {
             echo 'Pipeline failed.'
-            emailext(
-                subject: "Jenkins Build Failed: ${currentBuild.fullDisplayName}",
-                body: "The build ${currentBuild.fullDisplayName} has failed. Please check the details.",
-                to: 'vaibhav25011998@gmail.com'
+            emailext (
+              subject: "Jenkins Pipeline Failure",
+              body: "The Jenkins pipeline has failed.",
+              to: "vaibhav25011998@gmail.com"
             )
         }
         always {
