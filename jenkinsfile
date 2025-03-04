@@ -23,6 +23,11 @@ pipeline {
         }
         failure {
             echo 'Pipeline failed.'
+            emailext(
+                subject: "Jenkins Build Failed: ${currentBuild.fullDisplayName}",
+                body: "The build ${currentBuild.fullDisplayName} has failed. Please check the details.",
+                to: 'recipient@example.com'
+            )
         }
         always {
             echo 'This will always run, regardless of success or failure.'
