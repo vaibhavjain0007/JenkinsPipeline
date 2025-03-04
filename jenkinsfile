@@ -1,6 +1,20 @@
 pipeline {
     agent any
+    // Parameter for branch selection with a dropdown list of branches
+        choice(name: 'BRANCH_NAME', choices: ['main', 'test_branch_first', 'test_branch_second'], description: 'Choose the branch to build')
+
+        // Or you can use a string parameter for manual entry
+        // string(name: 'BRANCH_NAME', defaultValue: 'main', description: 'Enter the branch to build')
     stages {
+        stage('Checkout') {
+            steps {
+                script {
+                    // Checkout the branch selected from the parameters
+                    git branch: params.BRANCH_NAME, url: 'https://github.com/vaibhavjain0007/JenkinsPipeline.git'
+                }
+            }
+        }
+
         stage('Test Email') {
             steps {
                 script {
