@@ -1,7 +1,11 @@
 pipeline {
     agent any
-    // Parameter for branch selection with a dropdown list of branches
+    parameters {
+        // Define a choice parameter for selecting the branch to build
         choice(name: 'BRANCH_NAME', choices: ['main', 'test_branch_first', 'test_branch_second'], description: 'Choose the branch to build')
+    }
+    // Parameter for branch selection with a dropdown list of branches
+        // choice(name: 'BRANCH_NAME', choices: ['main', 'test_branch_first', 'test_branch_second'], description: 'Choose the branch to build')
 
         // Or you can use a string parameter for manual entry
         // string(name: 'BRANCH_NAME', defaultValue: 'main', description: 'Enter the branch to build')
