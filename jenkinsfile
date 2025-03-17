@@ -34,7 +34,7 @@ pipeline {
         }
         failure {
             echo 'Pipeline failed.'
-            emailext body: 'testing', subject: 'testing', to: 'vaibhav25011998@gmail.com, mfsi.vaibhavj@gmail.com'
+            mail body: 'testing', subject: 'testing', to: 'vaibhav25011998@gmail.com, mfsi.vaibhavj@gmail.com'
         }
         always {
             echo 'This will always run, regardless of success or failure.'
