@@ -34,11 +34,7 @@ pipeline {
         }
         failure {
             echo 'Pipeline failed.'
-            emailext (
-              subject: "Jenkins Pipeline Failure",
-              body: "The Jenkins pipeline has failed.",
-              to: "vaibhav25011998@gmail.com"
-            )
+            emailext body: 'testing', subject: 'testing', to: 'vaibhav25011998@gmail.com, mfsi.vaibhavj@gmail.com'
         }
         always {
             echo 'This will always run, regardless of success or failure.'
